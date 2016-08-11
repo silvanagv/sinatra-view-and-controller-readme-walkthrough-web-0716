@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require 'pry'
 
 class App < Sinatra::Base
 
@@ -7,10 +8,13 @@ class App < Sinatra::Base
   end
 
   post '/reverse' do
+    @string = params[:string].reverse
     erb :reversed
   end
 
   get '/friends' do
+    @friends = ["Charlie Chaplin", "Richard Pryor", "Eddie Murphy", "Louis CK", "Jerry Seinfeld"]
+    erb :friends
     #write your code here
   end
 
